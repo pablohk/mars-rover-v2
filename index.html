@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mars Rover</title>
+  <script src="javascripts/app.js"></script>
+<style>
+  #full-content {
+    background-color: rgba(200,200,200,0.7);
+    margin:0;
+    padding:0;
+    width: 800px;
+  }
+  p{
+    margin:0;
+    padding:0;
+  }
+  h1 {
+    text-align: center;
+  }
+  input {
+    width: 30%;
+    margin-left: 35%;
+  }
+  div {
+    border: 1px solid black;
+    float : left;
+    margin : 0 1% 1% 1%;
+    padding : 1%;
+      }
+  .clearfix {
+    clear :both;
+  }
+  .scroll {
+    width : 30%;
+    height: 300px;
+    margin-left: 30%;
+    overflow-y: scroll;
+  }
+  .status{
+    width: 40%;
+    margin-left: 30%;
+  }
+  .status p,span{
+    text-align: center;
+  }
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  }
+  #error{
+    display:none;
+  }
+  #seq-content {
+    width: 96%;
+  }
+</style>
+</head>
+<body>
+  <div id="full-content">
+    <h1> Move the Rover</h1>
+    <div class="status">
+      <p>Rover's actual Status (direction,X,Y)</p>
+      <p>(<span id="rover-status-dir">N</span>,<span id="rover-status-x">0</span>
+          ,<span id="rover-status-y">0</span>)</p>
+    </div>
+
+    <div class="left">
+      <p>Change the Orientation toward</p>
+      <input type="submit" value="Left" onclick="tester('l')"></input>
+      <input type="submit" value="Right" onclick="tester('r')"></input>
+    </div>
+
+    <div class="right">
+      <p>Move forward or backward only one time</p>
+      <input type="submit" value="Forward" onclick="tester('f')"></input>
+      <input type="submit" value="Backward" onclick="tester('b')"></input>
+    </div>
+
+    <div id="seq-content" class="clearfix">
+      <p>Move forward or backward by means of sequence (i.e fbfffllrr);</p>
+      <p>Remenber: only 'l' 'r' 'f' 'b' characters</p>
+      <input id="sequence" type="text"></input>
+      <input type="submit" value="Process" onclick="moveSequence()"></input>
+    </div>
+
+    <div class="scroll clearfix">
+      <p>travelLog: <span id="rover-status-travel"></span></p>
+    </div>
+  </div>
+</body>
+</html>
